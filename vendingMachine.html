@@ -1,0 +1,90 @@
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="css/vendingMachine.css" />
+    <script src="js/vendingMachineConfig.js"></script>
+    <script src="js/vendingMachineConst.js"></script>
+    <script src="js/vendingMachineLogic.js"></script>
+    <script src="js/vendingMachineEvent.js"></script>
+    <script src="js/vendingMachineView.js"></script>
+    <script src="js/vendingMachineMain.js"></script>
+    <title></title>
+</head>
+
+<body>
+
+    <div class="flexline">
+        <div id="vm_body">
+            <div id="items_space"></div>
+            <div class="flexline margin_top_2">
+                <div id="advertising_space">dGIC</div>
+                <div id="payment_space">
+                    <div id="vm_status">販売中</div>
+                    <div id="deposit"></div>
+                    <div id="coin_return" class="coin_return_disable_button">返金ボタン</div>
+                </div>
+            </div>
+            <div class="flexline margin_top_2">
+                <div id="outlet_space"></div>
+                <div id="coin_return_slot"></div>
+            </div>
+        </div>
+        <div id="vm_control_panel">
+            <div class="flexline">
+                <div>
+                    <div class="control_label">所持金</div>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>種別</th>
+                                <th>枚数</th>
+                                <th>操作</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>5000円</td>
+                                <td id="money_5000"></td>
+                                <td><a id="in_5000" class="in_enable_button">投入</a></td>
+                            </tr>
+                            <tr>
+                                <td>1000円</td>
+                                <td id="money_1000"></td>
+                                <td><a id="in_1000" class="in_enable_button">投入</a></td>
+                            </tr>
+                            <tr>
+                                <td>500円</td>
+                                <td id="money_500"></td>
+                                <td><a id="in_500" class="in_enable_button">投入</a></td>
+                            </tr>
+                            <tr>
+                                <td>100円</td>
+                                <td id="money_100"></td>
+                                <td><a id="in_100" class="in_enable_button">投入</a></td>
+                            </tr>
+                            <tr>
+                                <td>50円</td>
+                                <td id="money_50"></td>
+                                <td><a id="in_50" class="in_enable_button">投入</a></td>
+                            </tr>
+                            <tr>
+                                <td>10円</td>
+                                <td id="money_10"></td>
+                                <td><a id="in_10" class="in_enable_button">投入</a></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="margin_left_1">
+                    <div class="control_label">操作ボタン</div>
+
+                    <div><a id="vm_start" class="in_enable_button">販売開始</a></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="footer"></div>
+</body>
+
+</html>

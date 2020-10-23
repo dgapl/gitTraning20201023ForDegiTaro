@@ -1,0 +1,267 @@
+@charset "UTF-8";
+*, ::before, ::after {
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+    @media screen and (max-width: 768px) {
+        font-size: calc(100vw / 375 * 10);
+    }
+}
+
+table, td, th {
+    border: solid thin;
+    border-collapse: collapse;
+    font-size: 1.5rem;
+}
+
+td, th {
+    text-align: center;
+}
+
+th {
+    padding: 0.2rem;
+    height: 2em;
+}
+
+td {
+    padding: 0.25rem 0.2rem;
+    height: 3em;
+}
+
+#vm_body {
+    width: 50rem;
+    border: 0.1rem solid #000000;
+    background-color: #33cccc;
+    padding: 3rem;
+}
+
+#vm_control_panel {
+    width: 50rem;
+    border: 0.1rem solid #000000;
+    border-radius: 1rem;
+    background-color: #cccccc;
+    margin-left: 5rem;
+    padding: 3rem;
+}
+
+.flexline {
+    width: 100%;
+    display: inline-flex;
+}
+
+.margin_top_2 {
+    margin-top: 2rem;
+}
+
+.margin_left_1 {
+    margin-left: 1rem;
+}
+
+#items_space {
+    width: 100%;
+    border: 0.1rem solid #000000;
+    background-color: #ffffff;
+    border-radius: 0.5rem;
+}
+
+#advertising_space {
+    width: 30rem;
+    height: 10rem;
+    line-height: 10rem;
+    border: 0.1rem solid #000000;
+    background-color: #ffa98c;
+    vertical-align: middle;
+    text-align: center;
+    font-size: 5rem;
+    border-radius: 0.5rem;
+}
+
+#payment_space {
+    width: 10rem;
+    height: 10rem;
+    margin-left: 5rem;
+}
+
+#outlet_space {
+    width: 40rem;
+    height: 10rem;
+    border: 0.1rem solid #000000;
+    background-color: #808080;
+    border-radius: 0.5rem;
+}
+
+#coin_return_slot {
+    width: 5rem;
+    height: 5rem;
+    border: 0.1rem solid #000000;
+    background-color: rgb(70, 70, 70);
+    margin-left: 2rem;
+    border-radius: 0.5rem;
+}
+
+.item {
+    width: 10rem;
+    margin: 1rem;
+}
+
+.item_image {
+    height: 10rem;
+    line-height: 10rem;
+    background-color: #ffffcc;
+    border: 0.1rem solid #000000;
+    vertical-align: middle;
+    text-align: center;
+    margin-bottom: 0.2rem;
+}
+
+.item_image_stop {
+    height: 10rem;
+    line-height: 10rem;
+    background-color: #ffffff;
+    border: 0.1rem solid #000000;
+    vertical-align: middle;
+    text-align: center;
+    margin-bottom: 0.2rem;
+}
+
+.item_hot {
+    text-align: center;
+    background-color: #cc0000;
+    color: #fff;
+    font-weight: bold;
+    border: 0.1rem solid #000000;
+    margin-bottom: 0.2rem;
+}
+
+.item_cold {
+    text-align: center;
+    background-color: #00008b;
+    color: #fff;
+    font-weight: bold;
+    border: 0.1rem solid #000000;
+    margin-bottom: 0.2rem;
+}
+
+.item_buy_start {
+    width: 100%;
+    display: inline-block;
+    text-align: center;
+    color: #ffd4c5;
+    font-weight: bold;
+    background-color: #ff6633;
+    border: 0.1rem solid #000000;
+    border-radius: 2rem;
+    text-decoration: none;
+    cursor: pointer;
+    padding: 0.3rem 1.5rem;
+    transition: .3s;
+}
+
+.item_buy_stop {
+    width: 100%;
+    display: inline-block;
+    text-align: center;
+    color: #ffd4c5;
+    font-weight: bold;
+    background-color: #808080;
+    border: 0.1rem solid #000000;
+    border-radius: 2rem;
+    text-decoration: none;
+    cursor: default;
+    padding: 0.3rem 1.5rem;
+    transition: .3s;
+}
+
+.item_soldout {
+    width: 100%;
+    display: inline-block;
+    text-align: center;
+    color: #ffe6e6;
+    font-weight: bold;
+    background-color: #ff4b4b;
+    border: 0.1rem solid #000000;
+    border-radius: 2rem;
+    text-decoration: none;
+    cursor: default;
+    padding: 0.3rem 1.5rem;
+    transition: .3s;
+}
+
+#vm_status {
+    color: #ff6633;
+    font-weight: bold;
+    background-color: #000000;
+    font-size: 1.5rem;
+    text-align: center;
+    border-radius: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+#deposit {
+    color: #66ff33;
+    font-weight: bold;
+    background-color: #000000;
+    font-size: 1.5rem;
+    text-align: right;
+    border-radius: 0.5rem;
+    margin-bottom: 0.5rem;
+    padding-right: 2rem;
+}
+
+#coin_return {
+    font-weight: bold;
+    font-size: 1.2rem;
+    text-align: center;
+    border: 0.1rem solid #000000;
+    border-radius: 0.5rem;
+    padding: 1rem 0;
+    text-decoration: none;
+}
+
+.coin_return_enable_button {
+    color: #000000;
+    background-color: #ffd4c5;
+    cursor: pointer;
+}
+
+.coin_return_disable_button {
+    color: #666666;
+    background-color: #808080;
+    cursor: default;
+}
+
+.in_enable_button {
+    width: 100%;
+    display: inline-block;
+    text-align: center;
+    color: #ffd4c5;
+    font-weight: bold;
+    background-color: #ff6633;
+    border: 0.1rem solid #000000;
+    border-radius: 0px;
+    text-decoration: none;
+    cursor: pointer;
+    padding: 0.3rem 1.5rem;
+    transition: .3s;
+}
+
+.in_disable_button {
+    width: 100%;
+    display: inline-block;
+    text-align: center;
+    color: #666666;
+    font-weight: bold;
+    background-color: #808080;
+    border: 0.1rem solid #000000;
+    border-radius: 0px;
+    text-decoration: none;
+    cursor: default;
+    padding: 0.3rem 1.5rem;
+    transition: .3s;
+}
+
+.proceeds_area {
+    width: 10rem;
+}
