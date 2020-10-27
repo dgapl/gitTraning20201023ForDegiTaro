@@ -71,18 +71,36 @@ function addItemHotColdElement(itemElement, item) {
 function addItemBuyElement(itemElement, rowNumber, item) {
     const itemBuyElement = document.createElement('div');
     itemBuyElement.classList.add('item_buy_button');
-    if (isSoldout(item)) {
-        itemBuyElement.classList.add('item_soldout');
-    } else if (isItemBuy(item)) {
-        itemBuyElement.classList.add('item_buy_start');
-    } else {
-        itemBuyElement.classList.add('item_buy_stop');
-    }
+    if (statusCode === SYSTEM_STATUS_CODE.MAINTENANCE) {
+        itemBuyElement.classList.add('item_stock');
+        const upStockElement  = document.createElement('a');
+        upStockElement.innerText = '▲';
+        addClickEventForUpStock(upStockElement, rowNumber, item);
 
-    if (isSoldout(item)) {
-        itemBuyElement.innerText = SYSTEM_MESSAGE.SOLDOUT;
-    } else {
-        itemBuyElement.innerText = item.price + ' 円';
+        const downStockElement  = document.createElement('a');
+        downStockElement.innerText = '▼';
+        addClickEventForDownStock(downStockElement, rowNumber, item);
+
+        const viewStockElement  = document.createElement('span');
+        viewStockElement.innerText = '残: ' + item.stock + ' 本';
+        
+        itemBuyElement.append(upStockElement);
+        itemBuyElement.append(viewStockElement);
+        itemBuyElement.append(downStockElement);
+    }else{
+        if (isSoldout(item)) {
+            itemBuyElement.classList.add('item_soldout');
+        } else if (isItemBuy(item)) {
+            itemBuyElement.classList.add('item_buy_start');
+        } else {
+            itemBuyElement.classList.add('item_buy_stop');
+        }
+
+        if (isSoldout(item)) {
+            itemBuyElement.innerText = SYSTEM_MESSAGE.SOLDOUT;
+        } else {
+            itemBuyElement.innerText = item.price + ' 円';
+        }
     }
     itemElement.append(itemBuyElement);
 }
@@ -173,6 +191,9 @@ function viewStatus() {
             break;
         case SYSTEM_STATUS_CODE.BUY:
             statusMessage = SYSTEM_MESSAGE.BUY;
+            break;
+        case SYSTEM_STATUS_CODE.MAINTENANCE:
+            statusMessage = SYSTEM_MESSAGE.MAINTENANCE;
             break;
         default:
             statusMessage = SYSTEM_MESSAGE.FAIL;
