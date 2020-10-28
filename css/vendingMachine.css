@@ -307,7 +307,7 @@ td {
 }
 
 #history {
-  width: 20rem;
+    width: 20rem;
     max-height: 18rem;
     overflow: auto;
 }
