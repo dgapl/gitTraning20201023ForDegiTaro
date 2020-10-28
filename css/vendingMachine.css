@@ -265,3 +265,22 @@ td {
 .proceeds_area {
     width: 10rem;
 }
+
+#proceeds {
+    text-align: right;
+    padding-right: 3rem;
+}
+
+#history {
+    width: 20rem;
+    max-height: 18rem;
+    overflow: auto;
+}
+
+.control_label {
+    font-size: 1.5rem;
+}
+
+.control_data {
+    font-size: 1.5rem;
+}

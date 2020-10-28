@@ -23,6 +23,18 @@ const change = {
 };
 
 /**
+ * 返金スロット管理オブジェクト
+ */
+const returnSlot = {
+    5000: 0,
+    1000: 0,
+    500: 0,
+    100: 0,
+    50: 0,
+    10: 0
+};
+
+/**
  * システムステータスコード
  */
 const SYSTEM_STATUS_CODE = {
@@ -62,7 +74,7 @@ VENDING_MACHINE_NAME = '自販機シミュレータ';
 /**
  * システムバージョン
  */
-VENDING_MACHINE_VERSION = 'v1.0.0';
+VENDING_MACHINE_VERSION = 'v1.2.0';
 
 /**
  * 商品情報管理配列
