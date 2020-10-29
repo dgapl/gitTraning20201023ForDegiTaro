@@ -61,7 +61,7 @@ async function buyItem(rowNumber, itemId) {
     itemRows[rowNumber].items[idx].stock -= 1;
     deposit -= buyPrice;
     proceeds += buyPrice;
-    addHstory(itemRows[rowNumber].items[idx]);
+    addHistory(itemRows[rowNumber].items[idx]);
     viewDeposit();
     viewProceeds();
     viewItems();
@@ -240,7 +240,7 @@ function returnCollection () {
  * 商品の購入履歴を追加する
  * @param {object} item 商品オブジェクト 
  */
-function addHstory(item) {
+function addHistory(item) {
     const historyElement = document.getElementById('history');
     historyElement.innerHTML += '<div>[ ' + item.price + '円 ]: ' + item.name + '</div>\n';
 }
