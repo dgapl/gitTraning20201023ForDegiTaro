@@ -35,6 +35,15 @@ function eventVendingMachine() {
         },
         false
     );
+    
+    const returnCollectionElement = document.getElementById('return_collection');
+    returnCollectionElement.addEventListener(
+        'click', () => {
+            returnCollection();
+            viewVendingMachine();
+        },
+        false
+    );
 
     const vmStopElement = document.getElementById('vm_stop');
     vmStopElement.addEventListener(

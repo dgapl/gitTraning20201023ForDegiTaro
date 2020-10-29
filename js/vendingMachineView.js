@@ -3,7 +3,9 @@
  */
 function viewVendingMachine() {
     viewMoney();
+    viewReturnSlot();
     viewDeposit();
+    viewProceeds();
     viewItems();
     viewStatus();
 }
@@ -168,6 +170,16 @@ function viewMoney() {
 }
 
 /**
+ * 返金スロットを表示する
+ */
+function viewReturnSlot() {
+    for (let returnSlotNumber in returnSlot) {
+        const returnSlotElement = document.getElementById('return_slot_' + returnSlotNumber);
+        returnSlotElement.innerText = returnSlot[returnSlotNumber];
+    }
+}
+
+/**
  * 投入金額を表示する
  */
 function viewDeposit() {
@@ -177,6 +189,14 @@ function viewDeposit() {
         return;
     }
     depositElement.innerText = '.';
+}
+
+/**
+ * 売上を表示する
+ */
+function viewProceeds() {
+    const proceedsElement = document.getElementById('proceeds');
+    proceedsElement.innerText = proceeds + '円';
 }
 
 /**

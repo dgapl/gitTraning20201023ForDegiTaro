@@ -9,6 +9,11 @@ let statusCode = SYSTEM_STATUS_CODE.STOP;
 let deposit = 0;
 
 /**
+ * 売上金額
+ */
+let proceeds = 0;
+
+/**
  * 所持金投入ボタンの活性制御（初期値は活性）
  */
 let isEnableForInButton = true;

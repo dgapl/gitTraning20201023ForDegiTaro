@@ -60,7 +60,10 @@ async function buyItem(rowNumber, itemId) {
     }
     itemRows[rowNumber].items[idx].stock -= 1;
     deposit -= buyPrice;
+    proceeds += buyPrice;
+    addHistory(itemRows[rowNumber].items[idx]);
     viewDeposit();
+    viewProceeds();
     viewItems();
     await returnDeposit();
 }
@@ -115,6 +118,15 @@ async function useMoney(moneyNumber) {
 }
 
 /**
+ * 返金スロットに返金する
+ * @param {number} returnSlotNumber 返金額
+ */
+function addReturnSlot(returnSlotNumber) {
+    returnSlot[returnSlotNumber] += 1;
+    viewReturnSlot();
+}
+
+/**
  * お金を投入する
  * @param {number} moneyNumber 投入金額
  */
@@ -140,7 +152,6 @@ async function returnDeposit() {
                 await delayMillisec(DEPOSIT_DELAY_MILLISEC);
             }
             returnChange();
-            viewMoney();
             viewDeposit();
             viewItems();
         }
@@ -199,7 +210,7 @@ function returnChange() {
         if (change[changeNumber] > 0 && deposit >= changeNumber) {
             deposit -= Number(changeNumber);
             change[changeNumber] -= 1;
-            money[changeNumber] += 1;
+            addReturnSlot(changeNumber);
             return;
         }
     }
@@ -213,4 +224,23 @@ function returnChange() {
  */
 async function delayMillisec(millisec) {
     return new Promise(resolve => setTimeout(resolve, millisec));
+}
+
+/**
+ * 売上を計上する
+ */
+function returnCollection () {
+    for (let moneyNumber in money) {
+        money[moneyNumber] += returnSlot[moneyNumber];
+        returnSlot[moneyNumber] = 0;
+    }
+}
+
+/**
+ * 商品の購入履歴を追加する
+ * @param {object} item 商品オブジェクト 
+ */
+function addHistory(item) {
+    const historyElement = document.getElementById('history');
+    historyElement.innerHTML += '<div>[ ' + item.price + '円 ]: ' + item.name + '</div>\n';
 }
