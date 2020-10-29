@@ -69,6 +69,33 @@ async function buyItem(rowNumber, itemId) {
 }
 
 /**
+ * 対象商品の在庫を増やす
+ * @param {number} rowNumber 商品の棚番号
+ * @param {number} itemId 商品ID
+ */
+function upItemStock(rowNumber, itemId) {
+    const idx = itemRows[rowNumber].items.findIndex((item) => {
+        return item.id === itemId;
+    });
+    itemRows[rowNumber].items[idx].stock += 1;
+}
+
+/**
+ * 対象商品の在庫を減らす
+ * @param {number} rowNumber 商品の棚番号
+ * @param {number} itemId 商品ID
+ */
+function downItemStock(rowNumber, itemId) {
+    const idx = itemRows[rowNumber].items.findIndex((item) => {
+        return item.id === itemId;
+    });
+    
+    if(itemRows[rowNumber].items[idx].stock > 0){
+        itemRows[rowNumber].items[idx].stock -= 1;
+    }
+}
+
+/**
  * 所持金を使用する
  * @param {number} moneyNumber 使用金額
  */

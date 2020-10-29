@@ -40,6 +40,7 @@ const returnSlot = {
 const SYSTEM_STATUS_CODE = {
     STOP: 0,
     BUY: 1,
+    MAINTENANCE: 2,
     FAIL: 99
 };
 
@@ -49,6 +50,7 @@ const SYSTEM_STATUS_CODE = {
 const SYSTEM_MESSAGE = {
     FAIL: '故障中',
     BUY: '販売中',
+    MAINTENANCE: '補充中',
     STOP: '停止中',
     SOLDOUT: '売り切れ'
 };
